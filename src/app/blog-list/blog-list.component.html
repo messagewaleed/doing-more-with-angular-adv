@@ -1,0 +1,19 @@
+<!-- <app-blog-post-tile
+  title="First Blog"
+  description="First Description..."
+></app-blog-post-tile>
+<app-blog-post-tile
+  title="Second Blog"
+  description="Second Description..."
+></app-blog-post-tile>
+<app-blog-post-tile
+  title="Third Blog"
+  description="Third Description..."
+></app-blog-post-tile> -->
+
+<app-blog-post-tile
+  *ngFor="let post of blogPost[currentPage]"
+  [post]="post"
+></app-blog-post-tile>
+
+<app-paginator [pageNumbers]="blogPost.length"></app-paginator>
