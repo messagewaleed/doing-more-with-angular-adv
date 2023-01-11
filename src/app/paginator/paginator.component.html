@@ -1,7 +1,9 @@
 <nav>
   <ul class="pagination">
     <li class="page-item" *ngFor="let page of pages; index as i">
-      <a href="#" class="page-link">{{ i + 1 }}</a>
+      <a href="#" class="page-link" (click)="pageNumberClicked(i)">
+        {{ i + 1 }}
+      </a>
     </li>
   </ul>
 </nav>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
@@ -9,7 +9,14 @@ export class PaginatorComponent {
   @Input() pageNumbers: any;
   pages!: number[];
 
+  @Output() pageNumberClick = new EventEmitter<number>();
+
   ngOnInit() {
     this.pages = new Array(this.pageNumbers);
+  }
+
+  pageNumberClicked(pageNumber: number) {
+    // Emitting an event whenever a particular page number is clicked
+    this.pageNumberClick.emit(pageNumber); 
   }
 }

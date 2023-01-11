@@ -16,4 +16,9 @@
   [post]="post"
 ></app-blog-post-tile>
 
-<app-paginator [pageNumbers]="blogPost.length"></app-paginator>
+<app-paginator
+  [pageNumbers]="blogPost.length"
+  (pageNumberClick)="updatePageNumber($event)"
+></app-paginator>
+
+<!--Tells Angular to call this method when the child emits the event-->

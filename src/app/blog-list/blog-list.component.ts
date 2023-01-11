@@ -59,4 +59,8 @@ export class BlogListComponent {
       ],
     ];
   }
+
+  updatePageNumber(newPage: any) {
+    this.currentPage = newPage;
+  }
 }
