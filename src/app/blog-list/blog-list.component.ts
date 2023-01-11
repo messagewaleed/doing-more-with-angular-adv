@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { BlogPost } from '../blog-post';
+import { BlogPostTileComponent } from '../blog-post-tile/blog-post-tile.component';
 
 @Component({
   selector: 'app-blog-list',
@@ -7,6 +8,10 @@ import { BlogPost } from '../blog-post';
   styleUrls: ['./blog-list.component.css'],
 })
 export class BlogListComponent {
+  // @ViewChild('tile') blogPostTileComponent!: BlogPostTileComponent;
+  @ViewChildren('tile')
+  listOfBlogPostTileComponents!: QueryList<BlogPostTileComponent>;
+
   // blogPost: BlogPost[] = [];
   blogPost!: BlogPost[][];
 
@@ -62,5 +67,10 @@ export class BlogListComponent {
 
   updatePageNumber(newPage: any) {
     this.currentPage = newPage;
+  }
+
+  expandAll() {
+    // this.blogPostTileComponent.displayFullText();
+    this.listOfBlogPostTileComponents.forEach((ref) => ref.displayFullText());
   }
 }

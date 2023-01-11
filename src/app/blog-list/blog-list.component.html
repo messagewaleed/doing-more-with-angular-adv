@@ -10,11 +10,13 @@
   title="Third Blog"
   description="Third Description..."
 ></app-blog-post-tile> -->
-
+<a (click)="expandAll()">Expand All</a>
 <app-blog-post-tile
+  #tile
   *ngFor="let post of blogPost[currentPage]"
   [post]="post"
 ></app-blog-post-tile>
+<!-- <app-blog-post-tile [post]="blogPost[0][0]" #tile></app-blog-post-tile> -->
 
 <app-paginator
   [pageNumbers]="blogPost.length"
